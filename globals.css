@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Deep Space Palette */
+  --color-void: #06060A;
+  /* Extremely dark blue-grey, better contrast than pure black */
+  --color-deep-charcoal: #09090E;
+  /* Base background */
+  --color-midnight-navy: #11111A;
+  /* Surface 1 */
+  --color-surface: #1A1A24;
+  /* Surface 2 */
+
+  /* Harmonious Accents (Soft & Vibrant) */
+  --color-aurora-green: #14F195;
+  /* Mint Teal */
+  --color-aurora-violet: #9945FF;
+  /* Soft Lavender Purple */
+  --color-aurora-rose: #FF6188;
+  /* Soft Coral Pink */
+  --color-aurora-blue: #00C2FF;
+  /* Soft Cyan */
+
+  /* Legacy compat aliases */
+  --color-cyber-cyan: #14F195;
+  --color-electric-violet: #9945FF;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-glass-surface: rgba(20, 20, 20, 0.4);
+}
+
+:root {
+  --background: #06060A;
+  --foreground: #F8FAFC;
+  /* Softer white for less eye strain */
+}
+
+/* ─── Ultra Background Animations ─── */
+@keyframes nebula-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.15;
+  }
+
+  33% {
+    transform: translate(5%, -5%) scale(1.1) rotate(5deg);
+    opacity: 0.25;
+  }
+
+  66% {
+    transform: translate(-3%, 3%) scale(0.95) rotate(-3deg);
+    opacity: 0.15;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes nebula-drift-2 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+
+  33% {
+    transform: translate(-4%, 4%) scale(1.05) rotate(-2deg);
+    opacity: 0.2;
+  }
+
+  66% {
+    transform: translate(4%, -4%) scale(1.15) rotate(4deg);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes star-twinkle {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes star-drift {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(250%) skewX(-15deg);
+  }
+}
+
+@keyframes count-up-bounce {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  60% {
+    transform: scale(1.02);
+    filter: blur(0px);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ─── Base body ─── */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-deep-charcoal);
+}
+
+/* ─── Refined Glassmorphism 2.0 ─── */
+.glass {
+  background: var(--color-glass-surface);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-premium {
+  background: rgba(17, 17, 26, 0.65);
+  backdrop-filter: blur(32px) saturate(220%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Nebula Background Classes ─── */
+.nebula-bg-1 {
+  background: radial-gradient(circle at center, var(--color-aurora-violet), transparent 60%);
+  mix-blend-mode: screen;
+  animation: nebula-drift-1 25s ease-in-out infinite;
+}
+
+.nebula-bg-2 {
+  background: radial-gradient(circle at center, var(--color-aurora-green), transparent 60%);
+  mix-blend-mode: screen;
+  animation: nebula-drift-2 30s ease-in-out infinite;
+}
+
+/* ─── Starfield Generator classes ─── */
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2000px;
+  background: transparent;
+}
+
+/* ─── Dynamic Glow utilities ─── */
+.glow-teal {
+  text-shadow: 0 0 15px rgba(20, 241, 149, 0.4), 0 0 40px rgba(20, 241, 149, 0.1);
+}
+
+.glow-violet {
+  text-shadow: 0 0 15px rgba(153, 69, 255, 0.4), 0 0 40px rgba(153, 69, 255, 0.1);
+}
+
+/* ─── Clean Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(20, 241, 149, 0.2);
+  color: #fff;
+}
+
+/* ─── Helper Classes ─── */
+.text-balance {
+  text-wrap: balance;
+}
